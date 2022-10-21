@@ -22,7 +22,7 @@
 #' @return nothing
 #' @export
 
-gisticChromPlot = function(gistic = NULL, fdrCutOff = 0.1, markBands = NULL,
+gisticChromPlot = function(gistic = NULL, n = 30, fdrCutOff = 0.1, markBands = NULL,
                            color = NULL, ref.build = "hg19", cytobandOffset = 0.01, txtSize = 0.8, cytobandTxtSize = 0.6,
                            maf = NULL, mutGenes = NULL, y_lims = NULL, mutGenesTxtSize = 0.6) {
 
@@ -115,7 +115,7 @@ gisticChromPlot = function(gistic = NULL, fdrCutOff = 0.1, markBands = NULL,
   gis.scores = data.table::rbindlist(l = gis.scores, use.names = TRUE, fill = TRUE)
 
   if(is.null(markBands)){
-    markBands = g.lin[order(qvalues)][1:30, Cytoband]
+    markBands = g.lin[order(qvalues)][1:n, Cytoband]
   }
 
   if(all(length(markBands) == 1 & markBands == 'all')){
