@@ -115,7 +115,7 @@ gisticChromPlot = function(gistic = NULL, fdrCutOff = 0.1, markBands = NULL,
   gis.scores = data.table::rbindlist(l = gis.scores, use.names = TRUE, fill = TRUE)
 
   if(is.null(markBands)){
-    markBands = g.lin[order(qvalues)][1:5, Cytoband]
+    markBands = g.lin[order(qvalues)][1:30, Cytoband]
   }
 
   if(all(length(markBands) == 1 & markBands == 'all')){
